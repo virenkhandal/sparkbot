@@ -1,3 +1,4 @@
+// @author Viren Khandal
 public class Game{
     private Board board;
     private Player[] players;
@@ -9,5 +10,15 @@ public class Game{
     }
     public Player[] get_players(){
         return players;
+    }
+    public Position[] get_player_positions(){
+        Player[] game_players = get_players();
+        Position[] positions = new Position[game_players.length];
+        for (int i = 0; i < players.length; i++){
+            Player current_player = players[i];
+            Position current_position = current_player.get_position();
+            positions[i] = current_position;
+        }
+        return positions;
     }
 }
