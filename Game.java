@@ -7,6 +7,12 @@ public class Game{
     public Board get_board(){
         return board;
     }
+    public Property[] get_properties(){
+        return properties;
+    }
+    public Property[] get_available_properties(){
+        return available_properties;
+    }
     public void create_game(){
         board = new Board();
     }
