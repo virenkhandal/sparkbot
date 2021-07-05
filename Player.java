@@ -4,15 +4,22 @@ import java.util.Random;
 public class Player{
     private Position position;
     private int balance;
+    private Property[] properties;
     public Position get_position(){
         return position;
     }
     public int get_balance(){
         return balance;
     }
+    public Property[] get_properties(){
+        return properties;
+    }
     public int roll_dice(){
         Random rand = new Random();
         int roll = rand.nextInt(11) + 2;
         return roll;
+    }
+    public void buy_property(){
+        
     }
 }

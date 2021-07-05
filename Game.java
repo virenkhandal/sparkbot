@@ -2,6 +2,8 @@
 public class Game{
     private Board board;
     private Player[] players;
+    private Property[] properties;
+    private Property[] available_properties;
     public Board get_board(){
         return board;
     }
