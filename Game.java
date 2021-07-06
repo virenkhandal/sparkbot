@@ -22,11 +22,21 @@ public class Game{
     public Position[] get_player_positions(){
         Player[] game_players = get_players();
         Position[] positions = new Position[game_players.length];
-        for (int i = 0; i < players.length; i++){
+        for (int i = 0; i < game_players.length; i++){
             Player current_player = players[i];
             Position current_position = current_player.get_position();
             positions[i] = current_position;
         }
         return positions;
+    }
+    public Property[][] get_player_properties(){
+        Player[] game_players = get_players();
+        Property[][] properties = new Property[game_players.length][];
+        for (int i = 0; i < game_players.length; i++){
+            Player current_player = game_players[i];
+            Property[] current_properties = current_player.get_properties();
+            properties[i] = current_properties; 
+        }
+        return properties;
     }
 }
