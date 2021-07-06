@@ -39,4 +39,12 @@ public class Game{
         }
         return properties;
     }
+    public void make_turn(Player player){
+        Position curPosition = player.get_position();
+        int curr_index = curPosition.get_index();
+        int dice_roll = player.roll_dice();
+        Position new_position = new Position();
+        new_position.set_index(curr_index + dice_roll);
+        // 
+    }
 }

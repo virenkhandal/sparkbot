@@ -8,4 +8,7 @@ public class Position{
     public String get_name(){
         return name;
     }
+    public void set_index(int new_index){
+        index = new_index;
+    }
 }
