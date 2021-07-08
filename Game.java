@@ -39,12 +39,38 @@ public class Game{
         }
         return properties;
     }
+    public Player get_player_by_index(int index){
+        return null;
+    }
     public void make_turn(Player player){
         Position curPosition = player.get_position();
         int curr_index = curPosition.get_index();
         int dice_roll = player.roll_dice();
         Position new_position = new Position();
         new_position.set_index(curr_index + dice_roll);
-        // 
+        boolean can_buy = true;
+        for (int i = 0; i < players.length; i++){
+            Player curr_player = players[i];
+            for (int j = 0; j < curr_player.get_properties().length; j++){
+                Property curr_property = curr_player.get_properties()[j];
+                if (new_position.get_property().equals(curr_property)){
+                    player.set_balance(player.get_balance() - curr_property.get_base_rent());
+                    curr_player.set_balance(curr_player.get_balance() + curr_property.get_base_rent());
+                    can_buy = false;
+                }
+            }
+        }
+        if (player.buy_property() && can_buy){
+            if (player.get_balance() >= new_position.get_price()){
+                player.set_balance(player.get_balance() - new_position.get_price());
+            }
+            else{
+                // raise error for lack of funds
+            }
+        } else {
+            int current_index = player.get_index();
+            Player next_player = get_player_by_index(current_index + 1);
+            make_turn(next_player);
+        }
     }
 }

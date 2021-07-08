@@ -1,6 +1,7 @@
 import java.util.Random;
 
 // @author Viren Khandal
+
 public class Player{
     private String name;
     private int index;
@@ -27,7 +28,11 @@ public class Player{
         int roll = rand.nextInt(11) + 2;
         return roll;
     }
-    public void buy_property(){
-        
+    public boolean buy_property(){
+        return true;
+    }
+    public void set_balance(int amount){
+        balance = amount;
     }
 }
+
