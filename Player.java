@@ -34,5 +34,8 @@ public class Player{
     public void set_balance(int amount){
         balance = amount;
     }
+    public void set_index(int new_index){
+        index = new_index;
+    }
 }
 

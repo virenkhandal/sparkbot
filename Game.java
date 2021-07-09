@@ -1,9 +1,14 @@
+import java.util.Dictionary;
+import java.util.Hashtable;
+
 // @author Viren Khandal
 public class Game{
     private Board board;
     private Player[] players;
     private Property[] properties;
     private Property[] available_properties;
+    Dictionary<Integer, Position> position_dict = new Hashtable<Integer, Position>();
+    Dictionary<Integer, Player> player_dict = new Hashtable<Integer, Player>();
     public Board get_board(){
         return board;
     }
@@ -40,10 +45,22 @@ public class Game{
         return properties;
     }
     public Player get_player_by_index(int index){
-        return null;
+        return player_dict.get(index);
     }
     public Position get_position_by_index(int index){
-        return null;
+        return position_dict.get(index);
+    }
+    public void initialize_map(){
+        // Position
+        // property_dict.put(0, )
+    }
+    public void start_game(){
+        for (int i = 0; i < players.length; i++){
+            Player current_player = players[i];
+            current_player.set_index(i);
+            player_dict.put(i, current_player);
+        }
+        initialize_map();
     }
     public void make_turn(Player player){
         Position curPosition = player.get_position();
