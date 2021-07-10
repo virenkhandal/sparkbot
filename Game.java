@@ -51,8 +51,9 @@ public class Game{
         return property_dict.get(index);
     }
     public void initialize_map(){
-        // Position
-        // property_dict.put(0, )
+        Property baltic_ave = new Property();
+        baltic_ave.__init__(1, "Baltic Avenue", 2, 40, "Brown");
+        property_dict.put(1, baltic_ave);
     }
     public void start_game(){
         for (int i = 0; i < players.length; i++){
