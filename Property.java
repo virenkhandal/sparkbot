@@ -3,6 +3,7 @@ public class Property{
     private int index;
     private String name;
     private int base_rent;
+    private int price;
     private String color;
     public int get_index(){
         return index;
@@ -15,5 +16,8 @@ public class Property{
     }
     public String get_color(){
         return color;
+    }
+    public int get_price(){
+        return price;
     }
 }

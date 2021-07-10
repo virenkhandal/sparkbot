@@ -7,7 +7,7 @@ public class Game{
     private Player[] players;
     private Property[] properties;
     private Property[] available_properties;
-    Dictionary<Integer, Position> position_dict = new Hashtable<Integer, Position>();
+    Dictionary<Integer, Property> property_dict = new Hashtable<Integer, Property>();
     Dictionary<Integer, Player> player_dict = new Hashtable<Integer, Player>();
     public Board get_board(){
         return board;
@@ -24,12 +24,12 @@ public class Game{
     public Player[] get_players(){
         return players;
     }
-    public Position[] get_player_positions(){
+    public Property[] get_player_positions(){
         Player[] game_players = get_players();
-        Position[] positions = new Position[game_players.length];
+        Property[] positions = new Property[game_players.length];
         for (int i = 0; i < game_players.length; i++){
             Player current_player = players[i];
-            Position current_position = current_player.get_position();
+            Property current_position = current_player.get_position();
             positions[i] = current_position;
         }
         return positions;
@@ -47,8 +47,8 @@ public class Game{
     public Player get_player_by_index(int index){
         return player_dict.get(index);
     }
-    public Position get_position_by_index(int index){
-        return position_dict.get(index);
+    public Property get_property_by_index(int index){
+        return property_dict.get(index);
     }
     public void initialize_map(){
         // Position
@@ -63,11 +63,10 @@ public class Game{
         initialize_map();
     }
     public void make_turn(Player player){
-        Position curPosition = player.get_position();
+        Property curPosition = player.get_position();
         int curr_index = curPosition.get_index();
         int dice_roll = player.roll_dice();
-        Position new_position = get_position_by_index(curr_index + dice_roll);
-        Property new_property = new_position.get_property();
+        Property new_property = get_property_by_index(curr_index + dice_roll);
         boolean can_buy = true;
         for (int i = 0; i < players.length; i++){
             Player curr_player = players[i];
@@ -81,8 +80,8 @@ public class Game{
             }
         }
         if (player.buy_property() && can_buy){
-            if (player.get_balance() >= new_position.get_price()){
-                player.set_balance(player.get_balance() - new_position.get_price());
+            if (player.get_balance() >= new_property.get_price()){
+                player.set_balance(player.get_balance() - new_property.get_price());
                 for (int i = 0; i < available_properties.length; i++){
                     if (available_properties[i].equals(new_property)){
                         // remove new_property from available properties

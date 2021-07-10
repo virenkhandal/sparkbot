@@ -5,7 +5,7 @@ import java.util.Random;
 public class Player{
     private String name;
     private int index;
-    private Position position;
+    private Property curr_property;
     private int balance;
     private Property[] properties;
     public String get_name(){
@@ -14,8 +14,8 @@ public class Player{
     public int get_index(){
         return index;
     }
-    public Position get_position(){
-        return position;
+    public Property get_position(){
+        return curr_property;
     }
     public int get_balance(){
         return balance;
