@@ -51,9 +51,26 @@ public class Game{
         return property_dict.get(index);
     }
     public void initialize_map(){
-        Property baltic_ave = new Property();
-        baltic_ave.__init__(1, "Baltic Avenue", 2, 40, "Brown");
-        property_dict.put(1, baltic_ave);
+        // brown
+        Property mediterranean = new Property();
+        mediterranean.__init__(1, "Mediterraneann Avenue", 2, 60, "Brown");
+        property_dict.put(1, mediterranean);
+        Property baltic = new Property();
+        baltic.__init__(2, "Baltic Avenue", 4, 60, "Brown");
+        property_dict.put(2, baltic);
+
+        // blue
+        Property oriental = new Property();
+        oriental.__init__(3, "Oriental Avenue", 6, 100, "Blue");
+        property_dict.put(3, oriental);
+        Property vermont = new Property();
+        vermont.__init__(4, "Vermont Avenue", 6, 100, "Blue");
+        property_dict.put(4, vermont);
+        Property connecticut = new Property();
+        connecticut.__init__(4, "Connecticut Avenue", 8, 120, "Blue");
+        property_dict.put(4, connecticut);
+
+        // pink
     }
     public void start_game(){
         for (int i = 0; i < players.length; i++){
