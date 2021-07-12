@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.Hashtable;
 
@@ -5,6 +6,7 @@ import java.util.Hashtable;
 public class Game{
     private Board board;
     private Player[] players;
+    private ArrayList<Property> all_properties;
     private Property[] properties;
     private Property[] available_properties;
     Dictionary<Integer, Property> property_dict = new Hashtable<Integer, Property>();
