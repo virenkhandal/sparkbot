@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Random;
 
 // @author Viren Khandal
@@ -7,7 +8,7 @@ public class Player{
     private int index;
     private Property curr_property;
     private int balance;
-    private Property[] properties;
+    private ArrayList<Property> properties;
     public String get_name(){
         return name;
     }
@@ -20,7 +21,7 @@ public class Player{
     public int get_balance(){
         return balance;
     }
-    public Property[] get_properties(){
+    public ArrayList<Property> get_properties(){
         return properties;
     }
     public int roll_dice(){

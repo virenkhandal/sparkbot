@@ -6,45 +6,50 @@ import java.util.Hashtable;
 public class Game{
     private Board board;
     private Player[] players;
+    private ArrayList<Player> all_players;
     private ArrayList<Property> all_properties;
-    private Property[] properties;
-    private Property[] available_properties;
+    private ArrayList<Property> available_properties;
+    private ArrayList<Property> owned_properties;
     Dictionary<Integer, Property> property_dict = new Hashtable<Integer, Property>();
     Dictionary<Integer, Player> player_dict = new Hashtable<Integer, Player>();
     public Board get_board(){
         return board;
     }
-    public Property[] get_properties(){
-        return properties;
+    public ArrayList<Property> get_properties(){
+        return all_properties;
     }
-    public Property[] get_available_properties(){
+    public ArrayList<Property> get_available_properties(){
         return available_properties;
+    }
+    public ArrayList<Property> get_owned_properties(){
+        return owned_properties;
     }
     public void create_game(){
         board = new Board();
     }
-    public Player[] get_players(){
-        return players;
+    public ArrayList<Player> get_players(){
+        return all_players;
     }
-    public Property[] get_player_positions(){
-        Player[] game_players = get_players();
-        Property[] positions = new Property[game_players.length];
-        for (int i = 0; i < game_players.length; i++){
-            Player current_player = players[i];
-            Property current_position = current_player.get_position();
-            positions[i] = current_position;
+    public Dictionary<Player, Property> get_player_positions(){
+        ArrayList<Player> players = get_players();
+        Dictionary<Player, Property> player_positions = new Hashtable<Player, Property>();
+        for (int i = 0; i < players.size(); i++){
+            Player curr_player = players.get(i);
+            Property current_position = curr_player.get_position();
+            player_positions.put(curr_player, current_position);
         }
-        return positions;
+        return player_positions;
     }
-    public Property[][] get_player_properties(){
-        Player[] game_players = get_players();
-        Property[][] properties = new Property[game_players.length][];
-        for (int i = 0; i < game_players.length; i++){
-            Player current_player = game_players[i];
-            Property[] current_properties = current_player.get_properties();
-            properties[i] = current_properties; 
+
+    public Dictionary<Player, ArrayList<Property>> get_player_properties(){
+        ArrayList<Player> game_players = get_players();
+        Dictionary<Player, ArrayList<Property>> player_properties = new Hashtable<Player, ArrayList<Property>>();
+        for (int i = 0; i < game_players.size(); i++){
+            Player current_player = game_players.get(i);
+            ArrayList<Property> current_properties = current_player.get_properties();
+            player_properties.put(current_player, current_properties);
         }
-        return properties;
+        return player_properties;
     }
     public Player get_player_by_index(int index){
         return player_dict.get(index);
@@ -73,8 +78,8 @@ public class Game{
         boolean can_buy = true;
         for (int i = 0; i < players.length; i++){
             Player curr_player = players[i];
-            for (int j = 0; j < curr_player.get_properties().length; j++){
-                Property curr_property = curr_player.get_properties()[j];
+            for (int j = 0; j < curr_player.get_properties().size(); j++){
+                Property curr_property = curr_player.get_properties().get(j);
                 if (new_property.equals(curr_property)){
                     player.set_balance(player.get_balance() - curr_property.get_base_rent());
                     curr_player.set_balance(curr_player.get_balance() + curr_property.get_base_rent());
@@ -85,8 +90,8 @@ public class Game{
         if (player.buy_property() && can_buy){
             if (player.get_balance() >= new_property.get_price()){
                 player.set_balance(player.get_balance() - new_property.get_price());
-                for (int i = 0; i < available_properties.length; i++){
-                    if (available_properties[i].equals(new_property)){
+                for (int i = 0; i < available_properties.size(); i++){
+                    if (available_properties.get(i).equals(new_property)){
                         // remove new_property from available properties
                     }
                 }
