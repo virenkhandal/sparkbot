@@ -77,6 +77,38 @@ public class Game{
         property_dict.put(4, connecticut);
 
         // pink
+        Property st_charles = new Property();
+        st_charles.__init__(5, "St. Charles Place", 10, 140, "Pink");
+        property_dict.put(5, st_charles);
+        Property states = new Property();
+        states.__init__(6, "States Avenue", 10, 140, "Pink");
+        property_dict.put(6, states);
+        Property virginia = new Property();
+        virginia.__init__(7, "Virginia Avenue", 12, 160, "Pink");
+        property_dict.put(7, virginia);
+
+        // orange
+        Property st_james = new Property();
+        st_james.__init__(8, "St. James Place", 14, 180, "Orange");
+        property_dict.put(8, st_james);
+        Property tennessee = new Property();
+        tennessee.__init__(9, "Tennessee Avenue", 14, 180, "Orange");
+        property_dict.put(9, tennessee);
+        Property new_york = new Property();
+        new_york.__init__(10, "New York Avenue", 16, 200, "Orange");
+        property_dict.put(10, new_york);
+
+        // red
+
+        // yellow
+
+        // green
+
+        // navy
+
+        // stations
+
+        // utilities
     }
     public void start_game(){
         for (int i = 0; i < players.size(); i++){
