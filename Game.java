@@ -5,8 +5,7 @@ import java.util.Hashtable;
 // @author Viren Khandal
 public class Game{
     private Board board;
-    private Player[] players;
-    private ArrayList<Player> all_players;
+    private ArrayList<Player> players;
     private ArrayList<Property> all_properties;
     private ArrayList<Property> available_properties;
     private ArrayList<Property> owned_properties;
@@ -28,7 +27,7 @@ public class Game{
         board = new Board();
     }
     public ArrayList<Player> get_players(){
-        return all_players;
+        return players;
     }
     public Dictionary<Player, Property> get_player_positions(){
         ArrayList<Player> players = get_players();
@@ -63,8 +62,8 @@ public class Game{
         property_dict.put(1, baltic_ave);
     }
     public void start_game(){
-        for (int i = 0; i < players.length; i++){
-            Player current_player = players[i];
+        for (int i = 0; i < players.size(); i++){
+            Player current_player = players.get(i);
             current_player.set_index(i);
             player_dict.put(i, current_player);
         }
@@ -76,8 +75,8 @@ public class Game{
         int dice_roll = player.roll_dice();
         Property new_property = get_property_by_index(curr_index + dice_roll);
         boolean can_buy = true;
-        for (int i = 0; i < players.length; i++){
-            Player curr_player = players[i];
+        for (int i = 0; i < players.size(); i++){
+            Player curr_player = players.get(i);
             for (int j = 0; j < curr_player.get_properties().size(); j++){
                 Property curr_property = curr_player.get_properties().get(j);
                 if (new_property.equals(curr_property)){
