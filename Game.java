@@ -99,16 +99,67 @@ public class Game{
         property_dict.put(10, new_york);
 
         // red
-
+        Property kentucky = new Property();
+        kentucky.__init__(11, "Kentucky Avenue", 16, 200, "Red");
+        property_dict.put(11, kentucky);
+        Property indiana = new Property();
+        indiana.__init__(12, "Indiana Avenue", 16, 200, "Red");
+        property_dict.put(12, indiana);
+        Property illinois = new Property();
+        illinois.__init__(13, "Illinois Avenue", 16, 200, "Red");
+        property_dict.put(13, illinois);
+        
         // yellow
+        Property atlantic = new Property();
+        atlantic.__init__(14, "Atlantic Avenue", 16, 200, "Yellow");
+        property_dict.put(14, atlantic);
+        Property ventnor = new Property();
+        ventnor.__init__(15, "Ventnor Avenue", 16, 200, "Yellow");
+        property_dict.put(15, ventnor);
+        Property marvin_gardens = new Property();
+        marvin_gardens.__init__(16, "Marvin Gardens", 16, 200, "Yellow");
+        property_dict.put(16, marvin_gardens);
 
         // green
-
+        Property pacific = new Property();
+        pacific.__init__(17, "Pacific Avenue", 16, 200, "Green");
+        property_dict.put(17, pacific);
+        Property north_carolina = new Property();
+        north_carolina.__init__(18, "North Carolina Avenue", 16, 200, "Green");
+        property_dict.put(18, north_carolina);
+        Property pennsylvania = new Property();
+        pennsylvania.__init__(19, "Pennsylvania Avenue", 16, 200, "Green");
+        property_dict.put(19, pennsylvania);
+        
         // navy
+        Property park_place = new Property();
+        park_place.__init__(20, "Park Place", 16, 200, "Navy");
+        property_dict.put(20, park_place);
+        Property boardwalk = new Property();
+        boardwalk.__init__(21, "Boardwalk", 16, 200, "Navy");
+        property_dict.put(21, boardwalk);
 
         // stations
+        Property reading_railroad = new Property();
+        reading_railroad.__init__(21, "Reading Railroad", 16, 200, "Station");
+        property_dict.put(21, reading_railroad);
+        Property pennsylvania_railroad = new Property();
+        pennsylvania_railroad.__init__(21, "Pennsylvania Railroad", 16, 200, "Station");
+        property_dict.put(21, pennsylvania_railroad);
+        Property bno_railroad = new Property();
+        bno_railroad.__init__(21, "B. & O. Railroad", 16, 200, "Station");
+        property_dict.put(21, bno_railroad);
+        Property short_line = new Property();
+        short_line.__init__(21, "Short Line", 16, 200, "Station");
+        property_dict.put(21, short_line);
 
         // utilities
+        Property electric_company = new Property();
+        electric_company.__init__(21, "Electric Company", 16, 200, "Utility");
+        property_dict.put(21, electric_company);
+        Property water_works = new Property();
+        water_works.__init__(21, "Water Works", 16, 200, "Utility");
+        property_dict.put(21, water_works);
     }
     public void start_game(){
         for (int i = 0; i < players.size(); i++){
